@@ -20,7 +20,7 @@
         <SwiperSlide v-for="(slide, index) in heroSlides" :key="index">
           <div class="relative h-full w-full flex items-center justify-center">
             <div class="absolute inset-0">
-              <img :src="slide.image" :alt="slide.title" class="w-full h-full object-cover">
+              <img :src="resolveAsset(slide.image)" :alt="slide.title" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-primary-light/60"></div>
             </div>
             
@@ -90,7 +90,7 @@
             v-motion-slide-visible-once-bottom
           >
             <div class="relative mb-4 overflow-hidden rounded-lg">
-              <img :src="producto.imagenes[0]" :alt="producto.nombre" class="w-full h-56 object-contain bg-gray-50 p-4 transition-transform duration-500 hover:scale-110">
+              <img :src="resolveAsset(producto.imagenes[0] || '')" :alt="producto.nombre" class="w-full h-56 object-contain bg-gray-50 p-4 transition-transform duration-500 hover:scale-110">
               <span v-if="producto.nuevo" class="badge badge-new absolute top-2 right-2">Nuevo</span>
               <span v-if="producto.oferta" class="badge badge-sale absolute top-2 right-2">Oferta</span>
             </div>
@@ -171,6 +171,7 @@ import { computed } from 'vue';
 import { useRouter, RouterLink } from 'vue-router';
 import { useProductsStore } from '@/stores/products';
 import { testimonialsData } from '@/data/testimonials';
+import { resolveAsset } from '@/utils/assets';
 
 // Swiper imports
 import { Swiper, SwiperSlide } from 'swiper/vue';

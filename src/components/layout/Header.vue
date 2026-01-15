@@ -24,7 +24,7 @@
       <div class="flex items-center justify-between">
         <!-- Logo -->
         <RouterLink to="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <img src="/logo.png" alt="Cloro San Joaquín" class="h-12 w-auto md:h-16 object-contain">
+          <img :src="resolveAsset('/logo.png')" alt="Cloro San Joaquín" class="h-12 w-auto md:h-16 object-contain">
           <div>
             <h1 class="text-xl md:text-2xl font-black font-satoshi text-brand-blue uppercase tracking-tight">Cloro San Joaquín</h1>
             <p class="text-xs md:text-sm text-gray-600">Pureza y Confianza desde 1990</p>
@@ -87,6 +87,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
+import { resolveAsset } from '@/utils/assets';
 
 const mobileMenuOpen = ref(false);
 

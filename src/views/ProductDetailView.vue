@@ -8,7 +8,7 @@
       <div v-if="product" class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <!-- Imagen -->
         <div>
-          <img :src="product.imagenes[0]" :alt="product.nombre" class="w-full rounded-lg shadow-lg">
+          <img :src="resolveAsset(product.imagenes[0] || '')" :alt="product.nombre" class="w-full rounded-lg shadow-lg">
         </div>
 
         <!-- Información -->
@@ -87,6 +87,7 @@
 import { computed } from 'vue';
 import { useRoute, RouterLink } from 'vue-router';
 import { useProductsStore } from '@/stores/products';
+import { resolveAsset } from '@/utils/assets';
 
 const route = useRoute();
 const productsStore = useProductsStore();

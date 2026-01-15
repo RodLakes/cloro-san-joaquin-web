@@ -50,9 +50,9 @@
           @click="router.push(`/productos/${producto.id}`)"
         >
           <div class="relative mb-4">
-            <img :src="producto.imagenes[0]" :alt="producto.nombre" class="w-full h-48 object-cover rounded-lg">
+            <img :src="resolveAsset(producto.imagenes[0] || '')" :alt="producto.nombre" class="w-full h-48 object-cover rounded-lg">
             <span v-if="producto.nuevo" class="badge badge-new absolute top-2 right-2">Nuevo</span>
-            <span v-if="producto.oferta" class="badge badge-sale absolute top-2left-2">Oferta</span>
+            <span v-if="producto.oferta" class="badge badge-sale absolute top-2 left-2">Oferta</span>
           </div>
           <span class="text-xs text-gray-500 uppercase">{{ producto.categoria }}</span>
           <h3 class="font-bold text-lg mb-2">{{ producto.nombre }}</h3>
@@ -83,6 +83,7 @@
 import { ref, computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { useProductsStore } from '@/stores/products';
+import { resolveAsset } from '@/utils/assets';
 import type { ProductSortOption } from '@/types/product';
 
 const router = useRouter();
