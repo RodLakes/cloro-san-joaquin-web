@@ -1,0 +1,38 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dropletGradient" x1="100" y1="20" x2="100" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#73BADF" />
+      <stop offset="100%" stop-color="#6992C6" />
+    </linearGradient>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+      <feOffset dx="0" dy="2" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Stylized Droplet Shape -->
+  <path 
+    d="M100 20C100 20 40 100 40 145C40 178.137 66.8629 205 100 205C133.137 205 160 178.137 160 145C160 100 100 20C100 20Z" 
+    fill="url(#dropletGradient)"
+    filter="url(#subtleShadow)"
+  />
+  
+  <!-- Inner Shine/Reflection -->
+  <path 
+    d="M85 55C85 55 60 100 60 135C60 145 65 155 75 155" 
+    stroke="white" 
+    stroke-width="4" 
+    stroke-linecap="round" 
+    stroke-opacity="0.3"
+  />
+  
+  <!-- Small Accent Droplet -->
+  <circle cx="130" cy="160" r="8" fill="white" fill-opacity="0.2" />
+</svg>
